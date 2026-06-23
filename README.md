@@ -9,3 +9,4 @@ E-commerce showroom minimalista optimizado para dispositivos móviles y entornos
 
 ## Despliegue en Servidores
 El proyecto está listo para ser alojado de manera estática y gratuita en plataformas globales como **GitHub Pages**, Vercel o Netlify con cero configuraciones de backend adicionales.
+.
