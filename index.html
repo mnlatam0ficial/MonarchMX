@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarch Mx | Catálogo Exclusivo</title>
+    
+    <!-- Favicon (Asegúrate de colocar un archivo favicon.ico en la ruta indicada) -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    
+    <!-- Hoja de Estilos Externa -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Monarch <span>Mx</span></h1>
+        <p class="subtitle">Premium Footwear</p>
+    </header>
+
+    <!-- PANEL DE CONTROL PROFESIONAL -->
+    <div class="controls-wrapper">
+        <div class="controls-container">
+            <div class="input-group">
+                <label for="searchInput">Búsqueda Rápida</label>
+                <input type="text" id="searchInput" class="control-element" placeholder="Modelo, ID o palabra clave...">
+            </div>
+            
+            <div class="input-group">
+                <label for="brandFilter">Filtrar por Marca</label>
+                <select id="brandFilter" class="control-element">
+                    <option value="all">Todas las Marcas</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Jordan">Jordan</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="New Balance">New Balance</option>
+                    <option value="Alexander McQueen">Alexander McQueen</option>
+                    <option value="Christian Louboutin">Christian Louboutin</option>
+                    <option value="Louis Vuitton">Louis Vuitton</option>
+                    <option value="On">On Cloud</option>
+                    <option value="Golden Goose">Golden Goose</option>
+                    <option value="Timberland">Timberland</option>
+                    <option value="Vans">Vans</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="priceSort">Ordenar</label>
+                <select id="priceSort" class="control-element">
+                    <option value="default">Relevancia</option>
+                    <option value="asc">Precio: Menor a Mayor</option>
+                    <option value="desc">Precio: Mayor a Menor</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del Catálogo -->
+    <div class="grid-container" id="catalogGrid">
+        <!-- Inyección JS -->
+    </div>
+
+    <!-- Script Externo (El atributo 'defer' asegura que el HTML cargue antes de ejecutar el JS) -->
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
