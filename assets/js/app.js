@@ -42,7 +42,9 @@ const SNEAKERS_DATA = [
     { id: "MNK-033", marca: "Adidas", nombre: "Superstar Disneys Dumbo", precio: "$1,800" },
     { id: "MNK-034", marca: "Nike", nombre: "Air Jordan 6 Retro SP Travis Scott Cactus Jack", precio: "$3,500" },
     { id: "MNK-035", marca: "Adidas", nombre: "NMD_R1 V2 Blanco/Naranja", precio: "$1,600" },
-    { id: "MNK-036", marca: "Louis Vuitton", nombre: "LV Trainer Monograma Azul/Blanco", precio: "$3,900" },
+    { id: "MNK-036", marca: "Louis Vuitton", nombre: "LV Trainer Monograma Azul/Blanco", precio: "$3,900" }
+];
+
 // ============================================================
 //  FUNCIONES AUXILIARES
 // ============================================================
@@ -104,6 +106,45 @@ function processCatalogData() {
     const brandFilter = document.getElementById('brandFilter');
     const priceSort  = document.getElementById('priceSort');
 
+    const texto = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    const marca = brandFilter ? brandFilter.value : 'all';
+    const orden = priceSort ? priceSort.value : 'default';
+
+    // 1. Filtrado combinado (texto + marca)
+    let resultado = SNEAKERS_DATA.filter(item => {
+        const coincideTexto = item.nombre.toLowerCase().includes(texto) ||
+                              item.marca.toLowerCase().includes(texto) ||
+                              item.id.toLowerCase().includes(texto);
+        const coincideMarca = marca === 'all' || item.marca.toLowerCase() === marca.toLowerCase();
+        return coincideTexto && coincideMarca;
+    });
+
+    // 2. Ordenamiento por precio (asc / desc)
+    if (orden === 'asc') {
+        resultado.sort((a, b) => cleanPrice(a.precio) - cleanPrice(b.precio));
+    } else if (orden === 'desc') {
+        resultado.sort((a, b) => cleanPrice(b.precio) - cleanPrice(a.precio));
+    }
+
+    renderCatalog(resultado);
+}
+
+// ============================================================
+//  INICIALIZACIÓN CUANDO EL DOM ESTÉ LISTO
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const brandFilter = document.getElementById('brandFilter');
+    const priceSort  = document.getElementById('priceSort');
+
+    // Solo asignamos listeners si los elementos existen
+    if (searchInput) searchInput.addEventListener('input', processCatalogData);
+    if (brandFilter) brandFilter.addEventListener('change', processCatalogData);
+    if (priceSort)  priceSort.addEventListener('change', processCatalogData);
+
+    // Render inicial
+    renderCatalog(SNEAKERS_DATA);
+});
     const texto = searchInput ? searchInput.value.trim().toLowerCase() : '';
     const marca = brandFilter ? brandFilter.value : 'all';
     const orden = priceSort ? priceSort.value : 'default';
