@@ -82,7 +82,8 @@ function renderCatalog(items) {
 
         card.innerHTML = `
             <div class="image-wrapper">
-                <div class="image-placeholder">${item.id} // NO IMAGE</div>
+                <img src="assets/img/${item.id}.jpg" alt="${item.nombre}" class="product-image" onerror="this.style.display='none'">
+                <div class="image-placeholder" style="display:${item.id};"></div>
             </div>
             <div class="info">
                 <span class="brand">${item.marca}</span>
