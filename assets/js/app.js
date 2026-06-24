@@ -82,7 +82,7 @@ function renderCatalog(items) {
         card.innerHTML = `
             <div class="image-wrapper">
                 <img src="assets/img/${item.id}.jpg" alt="${item.nombre}" class="product-image" onerror="this.style.display='none'">
-                <div class="image-placeholder" style="display:${item.id};"></div>
+                <div class="image-placeholder" style="display:none;"></div>
             </div>
             <div class="info">
                 <span class="brand">${item.marca}</span>
@@ -104,6 +104,47 @@ function renderCatalog(items) {
 function processCatalogData() {
     const searchInput = document.getElementById('searchInput');
     const brandFilter = document.getElementById('brandFilter');
+    const priceSort  = document.getElementById('priceSort');
+
+    const texto = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    const marca = brandFilter ? brandFilter.value : 'all';
+    const orden = priceSort ? priceSort.value : 'default';
+
+    // 1. Filtrado combinado (texto + marca)
+    let resultado = SNEAKERS_DATA.filter(item => {
+        const coincideTexto = item.nombre.toLowerCase().includes(texto) ||
+                              item.marca.toLowerCase().includes(texto) ||
+                              item.id.toLowerCase().includes(texto);
+        const coincideMarca = marca === 'all' || item.marca.toLowerCase() === marca.toLowerCase();
+        return coincideTexto && coincideMarca;
+    });
+
+    // 2. Ordenamiento por precio (asc / desc)
+    if (orden === 'asc') {
+        resultado.sort((a, b) => cleanPrice(a.precio) - cleanPrice(b.precio));
+    } else if (orden === 'desc') {
+        resultado.sort((a, b) => cleanPrice(b.precio) - cleanPrice(a.precio));
+    }
+
+    renderCatalog(resultado);
+}
+
+// ============================================================
+//  INICIALIZACIÓN CUANDO EL DOM ESTÉ LISTO
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const brandFilter = document.getElementById('brandFilter');
+    const priceSort  = document.getElementById('priceSort');
+
+    // Solo asignamos listeners si los elementos existen
+    if (searchInput) searchInput.addEventListener('input', processCatalogData);
+    if (brandFilter) brandFilter.addEventListener('change', processCatalogData);
+    if (priceSort)  priceSort.addEventListener('change', processCatalogData);
+
+    // Render inicial
+    renderCatalog(SNEAKERS_DATA);
+});
     const priceSort  = document.getElementById('priceSort');
 
     const texto = searchInput ? searchInput.value.trim().toLowerCase() : '';
