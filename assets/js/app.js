@@ -40,9 +40,9 @@ const SNEAKERS_DATA = [
     { id: "MNK-031", marca: "Nike", nombre: "Air More Uptempo Low Blanco/Azul Hyper Royal", precio: "$2,200" },
     { id: "MNK-032", marca: "Nike", nombre: "Air Jordan 6 Retro SP Travis Scott Cactus Jack", precio: "$3,500" },
     { id: "MNK-033", marca: "Adidas", nombre: "Superstar Disneys Dumbo", precio: "$1,800" },
-    { id: "MNK-034", marca: "Adidas", nombre: "NMD_R1 V2 Blanco/Naranja", precio: "$1,600" },
-    { id: "MNK-035", marca: "Louis Vuitton", nombre: "LV Trainer Monograma Azul/Blanco", precio: "$3,900" },
-    { id: "MNK-036", marca: "Nike", nombre: "Dunk Low Blanco/Gris", precio: "$1,700" }
+    { id: "MNK-034", marca: "Nike", nombre: "Dunk Low Blanco/Gris", precio: "$1,700" },
+    { id: "MNK-035", marca: "Adidas", nombre: "NMD_R1 V2 Blanco/Naranja", precio: "$1,600" },
+    { id: "MNK-036", marca: "Louis Vuitton", nombre: "LV Trainer Monograma Azul/Blanco", precio: "$3,900" }
 ];
 
 // ============================================================
