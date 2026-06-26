@@ -12,7 +12,7 @@ const SNEAKERS_DATA = [
     { id: "MNK-003", marca: "Jordan", nombre: "6 Rings", precio: "$2,000" },
     { id: "MNK-004", marca: "Jordan", nombre: "1 Mid Space Jam", precio: "$2,200" },
     { id: "MNK-005", marca: "Salvatore Ferragamo", nombre: "Blancos Suela Roja", precio: "$3,500" },
-    { id: "MNK-006", marca: "Christian Louboutin", nombre: "Louis Junior Spikes Suela Roja", precio: "$4,000" },
+    { id: "MNK-006", marca: "Christian Louboutin", nombre: "Louis Junior Spikes Suela Roja", precio: "$2,900" },
     { id: "MNK-007", marca: "Nike", nombre: "Hyperdunk X", precio: "$1,800" },
     { id: "MNK-008", marca: "Nike", nombre: "Mind 001", precio: "$1,700" },
     { id: "MNK-009", marca: "New Balance", nombre: "9060", precio: "$1,800" },
